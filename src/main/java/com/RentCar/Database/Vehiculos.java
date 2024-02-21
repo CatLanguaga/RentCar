@@ -1,10 +1,16 @@
 package com.RentCar.Database;
 
-import java.util.LinkedList;
+import jakarta.persistence.*;
+import java.io.Serializable;
+import lombok.Data;
 
-
-public class Vehiculos {
+@Entity
+@Data
+public class Vehiculos implements Serializable {
     
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int Id;
     
     private String Descripcion;
@@ -15,14 +21,48 @@ public class Vehiculos {
     
     private int NoPlaca;
     
-    private LinkedList<TiposVehiculos> TipoVehiculo;
+    @OneToOne
+    private TiposVehiculos TipoVehiculo;
     
-    private LinkedList<Marcas> Marca;
+    @OneToOne
+    private Marcas Marca;
+        
+    @OneToOne
+    private Modelos Modelo;
     
-    private LinkedList<Modelos> Modelo;
-    
-    private LinkedList<TiposCombustible> Combustible;
+    @OneToOne
+    private TiposCombustible Combustible;
     
     private String Estado;
+
+    public Vehiculos() {
+    }
+
+    public Vehiculos(String Descripcion, int NoChasis, int NoMotor, int NoPlaca, TiposVehiculos TipoVehiculo, Marcas Marca, Modelos Modelo, TiposCombustible Combustible, String Estado) {
+        this.Descripcion = Descripcion;
+        this.NoChasis = NoChasis;
+        this.NoMotor = NoMotor;
+        this.NoPlaca = NoPlaca;
+        this.TipoVehiculo = TipoVehiculo;
+        this.Marca = Marca;
+        this.Modelo = Modelo;
+        this.Combustible = Combustible;
+        this.Estado = Estado;
+    }
+
+    public Vehiculos(int Id, String Descripcion, int NoChasis, int NoMotor, int NoPlaca, TiposVehiculos TipoVehiculo, Marcas Marca, Modelos Modelo, TiposCombustible Combustible, String Estado) {
+        this.Id = Id;
+        this.Descripcion = Descripcion;
+        this.NoChasis = NoChasis;
+        this.NoMotor = NoMotor;
+        this.NoPlaca = NoPlaca;
+        this.TipoVehiculo = TipoVehiculo;
+        this.Marca = Marca;
+        this.Modelo = Modelo;
+        this.Combustible = Combustible;
+        this.Estado = Estado;
+    }
+    
+    
     
 }

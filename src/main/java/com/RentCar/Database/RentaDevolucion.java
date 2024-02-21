@@ -1,11 +1,16 @@
 package com.RentCar.Database;
 
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
-
-public class RentaDevolucion {
-    
+@Entity
+@Data
+public class RentaDevolucion implements Serializable {
+       
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long Id;
     
     @OneToOne
@@ -28,5 +33,35 @@ public class RentaDevolucion {
     private String Comentario;
     
     private String Estado;
+
+    public RentaDevolucion() {
+    }
+
+    public RentaDevolucion(int Empleado, int Vehiculo, int Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
+        this.Empleado = Empleado;
+        this.Vehiculo = Vehiculo;
+        this.Cliente = Cliente;
+        this.FechaRenta = FechaRenta;
+        this.FechaDevolucion = FechaDevolucion;
+        this.MontoXDia = MontoXDia;
+        this.CantidadDias = CantidadDias;
+        this.Comentario = Comentario;
+        this.Estado = Estado;
+    }
+
+    public RentaDevolucion(long Id, int Empleado, int Vehiculo, int Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
+        this.Id = Id;
+        this.Empleado = Empleado;
+        this.Vehiculo = Vehiculo;
+        this.Cliente = Cliente;
+        this.FechaRenta = FechaRenta;
+        this.FechaDevolucion = FechaDevolucion;
+        this.MontoXDia = MontoXDia;
+        this.CantidadDias = CantidadDias;
+        this.Comentario = Comentario;
+        this.Estado = Estado;
+    }
+    
+    
     
 }
