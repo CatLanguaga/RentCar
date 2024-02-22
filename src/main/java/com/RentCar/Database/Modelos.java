@@ -12,7 +12,7 @@ public class Modelos implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Long Id;
     
     @OneToOne
     private LinkedList<Marcas> marca;
@@ -26,7 +26,7 @@ public class Modelos implements Serializable {
     public Modelos() {
     }    
     
-    public Modelos(int Id, LinkedList<Marcas> marca, String Descripcion, String Estado) {
+    public Modelos(Long Id, LinkedList<Marcas> marca, String Descripcion, String Estado) {
         this.Id = Id;
         this.marca = marca;
         this.Descripcion = Descripcion;

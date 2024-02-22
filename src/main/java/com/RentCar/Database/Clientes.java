@@ -10,7 +10,7 @@ public class Clientes implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int Id;
+    private Long Id;
     
     private String Nombre;
     
@@ -35,7 +35,7 @@ public class Clientes implements Serializable {
         this.Estado = Estado;
     }
 
-    public Clientes(int Id, String Nombre, int NoTargetaCR, int LimCredito, String TipoPersona, String Estado) {
+    public Clientes(Long Id, String Nombre, int NoTargetaCR, int LimCredito, String TipoPersona, String Estado) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.NoTargetaCR = NoTargetaCR;
