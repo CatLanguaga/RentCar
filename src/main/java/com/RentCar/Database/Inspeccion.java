@@ -18,15 +18,15 @@ public class Inspeccion {
     @OneToOne
     private Clientes Cliente;
     
-    private boolean TieneRalladuras;
+    private String TieneRalladuras;
     
     private int CantidadCombustible;
     
-    private boolean GomaRespuesta;
+    private String GomaRespuesta;
     
-    private boolean TieneGato;
+    private String TieneGato;
     
-    private boolean RoturasCristal;
+    private String RoturasCristal;
     
     private String Gomas;
     
@@ -42,7 +42,7 @@ public class Inspeccion {
     public Inspeccion() {
     }
 
-    public Inspeccion(Vehiculos Vehiculo, Clientes Cliente, boolean TieneRalladuras, int CantidadCombustible, boolean GomaRespuesta, boolean TieneGato, boolean RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
+    public Inspeccion(Vehiculos Vehiculo, Clientes Cliente, String TieneRalladuras, int CantidadCombustible, String GomaRespuesta, String TieneGato, String RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
         this.Vehiculo = Vehiculo;
         this.Cliente = Cliente;
         this.TieneRalladuras = TieneRalladuras;
@@ -57,7 +57,7 @@ public class Inspeccion {
         this.Estado = Estado;
     }
 
-    public Inspeccion(Long Id, Vehiculos Vehiculo, Clientes Cliente, boolean TieneRalladuras, int CantidadCombustible, boolean GomaRespuesta, boolean TieneGato, boolean RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
+    public Inspeccion(Long Id, Vehiculos Vehiculo, Clientes Cliente, String TieneRalladuras, int CantidadCombustible, String GomaRespuesta, String TieneGato, String RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
         this.Id = Id;
         this.Vehiculo = Vehiculo;
         this.Cliente = Cliente;
@@ -72,6 +72,8 @@ public class Inspeccion {
         this.Descripcion = Descripcion;
         this.Estado = Estado;
     }
+
+    
     
     
     

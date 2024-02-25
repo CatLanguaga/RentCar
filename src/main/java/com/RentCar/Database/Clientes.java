@@ -14,6 +14,8 @@ public class Clientes implements Serializable {
     
     private String Nombre;
     
+    private int Cedula;
+    
     private int NoTargetaCR;
 
     private int LimCredito;
