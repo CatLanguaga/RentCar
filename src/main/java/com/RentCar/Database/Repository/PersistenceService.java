@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+//Contrladora de persistencias, donde se coordinan las operaciones CRUD
 @Service
 public class PersistenceService {
     
@@ -391,9 +393,9 @@ public class PersistenceService {
     
     
     @SuppressWarnings("null")
-    public void CrearTiposVehiculos(Vehiculos ta){
+    public void CrearTiposVehiculos(TiposVehiculos ta){
         
-        VR.save(ta);
+        TVR.save(ta);
         
     }
     
@@ -414,7 +416,7 @@ public class PersistenceService {
         
     
     @SuppressWarnings("null")
-    public void EliTiposmVehiculos(Long id){
+    public void ElimTiposVehiculos(Long id){
         
         try {
             TVR.deleteById(id);

@@ -14,13 +14,13 @@ public class RentaDevolucion implements Serializable {
     private long Id;
     
     @OneToOne
-    private int Empleado;
+    private Empleados Empleado;
     
     @OneToOne
-    private int Vehiculo;
+    private Vehiculos Vehiculo;
     
     @OneToOne
-    private int Cliente;
+    private Clientes Cliente;
     
     private Date FechaRenta;
     
@@ -37,7 +37,7 @@ public class RentaDevolucion implements Serializable {
     public RentaDevolucion() {
     }
 
-    public RentaDevolucion(int Empleado, int Vehiculo, int Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
+    public RentaDevolucion(Empleados Empleado, Vehiculos Vehiculo, Clientes Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
         this.Empleado = Empleado;
         this.Vehiculo = Vehiculo;
         this.Cliente = Cliente;
@@ -49,7 +49,7 @@ public class RentaDevolucion implements Serializable {
         this.Estado = Estado;
     }
 
-    public RentaDevolucion(long Id, int Empleado, int Vehiculo, int Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
+    public RentaDevolucion(long Id, Empleados Empleado, Vehiculos Vehiculo, Clientes Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
         this.Id = Id;
         this.Empleado = Empleado;
         this.Vehiculo = Vehiculo;
