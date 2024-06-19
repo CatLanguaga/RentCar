@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RentaDevolucionRepo 
-        extends JpaRepository<RentaDevolucion, Long>{
+        extends JpaRepository<RentaDevolucion, Integer>{
     
 }

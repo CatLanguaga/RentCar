@@ -10,7 +10,7 @@ public class Inspeccion {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
     
     @OneToOne
     private Vehiculos Vehiculo;
@@ -57,7 +57,7 @@ public class Inspeccion {
         this.Estado = Estado;
     }
 
-    public Inspeccion(Long Id, Vehiculos Vehiculo, Clientes Cliente, String TieneRalladuras, int CantidadCombustible, String GomaRespuesta, String TieneGato, String RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
+    public Inspeccion(Integer Id, Vehiculos Vehiculo, Clientes Cliente, String TieneRalladuras, int CantidadCombustible, String GomaRespuesta, String TieneGato, String RoturasCristal, String Gomas, Date fecha, Empleados Empleado, String Descripcion, String Estado) {
         this.Id = Id;
         this.Vehiculo = Vehiculo;
         this.Cliente = Cliente;

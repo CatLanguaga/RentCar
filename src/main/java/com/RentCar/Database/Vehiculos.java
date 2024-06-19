@@ -11,7 +11,7 @@ public class Vehiculos implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
     
     private String Descripcion;
     
@@ -50,7 +50,7 @@ public class Vehiculos implements Serializable {
         this.Estado = Estado;
     }
 
-    public Vehiculos(Long Id, String Descripcion, int NoChasis, int NoMotor, int NoPlaca, TiposVehiculos TipoVehiculo, Marcas Marca, Modelos Modelo, TiposCombustible Combustible, String Estado) {
+    public Vehiculos(Integer Id, String Descripcion, int NoChasis, int NoMotor, int NoPlaca, TiposVehiculos TipoVehiculo, Marcas Marca, Modelos Modelo, TiposCombustible Combustible, String Estado) {
         this.Id = Id;
         this.Descripcion = Descripcion;
         this.NoChasis = NoChasis;

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InspeccionRepo 
-        extends JpaRepository<Inspeccion, Long> {
+        extends JpaRepository<Inspeccion, Integer> {
     
 }

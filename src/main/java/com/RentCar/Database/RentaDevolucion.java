@@ -11,7 +11,7 @@ public class RentaDevolucion implements Serializable {
        
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long Id;
+    private Integer Id;
     
     @OneToOne
     private Empleados Empleado;
@@ -49,7 +49,7 @@ public class RentaDevolucion implements Serializable {
         this.Estado = Estado;
     }
 
-    public RentaDevolucion(long Id, Empleados Empleado, Vehiculos Vehiculo, Clientes Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
+    public RentaDevolucion(Integer Id, Empleados Empleado, Vehiculos Vehiculo, Clientes Cliente, Date FechaRenta, Date FechaDevolucion, int MontoXDia, int CantidadDias, String Comentario, String Estado) {
         this.Id = Id;
         this.Empleado = Empleado;
         this.Vehiculo = Vehiculo;

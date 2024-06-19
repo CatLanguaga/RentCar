@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ModelosRepo 
-        extends JpaRepository<Modelos, Long> {
+        extends JpaRepository<Modelos, Integer> {
     
 }

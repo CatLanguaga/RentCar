@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TiposCombustibleRepo 
-        extends JpaRepository<TiposCombustible, Long>{
+        extends JpaRepository<TiposCombustible, Integer>{
     
 }

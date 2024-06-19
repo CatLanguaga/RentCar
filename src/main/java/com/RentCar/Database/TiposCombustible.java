@@ -10,7 +10,7 @@ public class TiposCombustible implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
     
     private String Descripcion;
     
@@ -26,7 +26,7 @@ public class TiposCombustible implements Serializable {
         this.Estado = Estado;
     }
 
-    public TiposCombustible(Long Id, String Descripcion, String Estado) {
+    public TiposCombustible(Integer Id, String Descripcion, String Estado) {
         this.Id = Id;
         this.Descripcion = Descripcion;
         this.Estado = Estado;

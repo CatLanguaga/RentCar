@@ -1,50 +1,81 @@
 package com.RentCar.Database.Repository.Control;
 
 import com.RentCar.Database.Modelos;
-import com.RentCar.Database.Repository.PersistenceService;
+import com.RentCar.Exeption.RecursoNotFound;
+import com.RentCar.Service.ModelosService;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/Modelos")
+@RequestMapping()
 public class ControlModelos {
     
-    private final PersistenceService PS;
-    
-    @Autowired
-    public ControlModelos(PersistenceService PS) {
-        this.PS = PS;
-    }
-    
-    @PostMapping
-    public void crearModelos(Modelos c){
+        private static final Logger logger = LoggerFactory.getLogger(ControlModelos.class);
         
-        PS.CrearModelos(c);
-    }
-    
-    @PutMapping
-    public void EditarModelo(Modelos c){
+        @Autowired
+        private ModelosService modelosServicio;
         
-        PS.EditarModelos(c);
-    }
-    
-    @DeleteMapping("/Modelos/{id}")
-    public void ElimModelo(@PathVariable("id") long id){
+        @GetMapping("/modelos")
+        public List<Modelos> obetenerModelos(){
         
-        PS.ElimModelos(id);
-    }
-    
-    @GetMapping
-    public void ObtenerModelo(){
+            List<Modelos> modelos = this.modelosServicio.ListarModelos();
+            
+            logger.info("Modeloss Obtenidos:");
+            
+            modelos.forEach(modelo -> logger.info(modelo.toString()));
+            
+            return modelos;       
+        }
         
-        PS.obtenerModelos();        
-    }
-    
-    @GetMapping("/Modelos/{id}")
-    public void ObtenerModelos(@PathVariable("id") long id){
+        @PostMapping("/modelos")
+        public Modelos agregarModelos(@RequestBody Modelos modelo){
         
-        PS.obtenerModelos(id);
-    }
+            logger.info("Modelos a agregar: " + modelo);
+            
+            return this.modelosServicio.guardarModelos(modelo);
+        }
+        
+        @GetMapping("/modelos/{id}")
+        public ResponseEntity<Modelos> obtenerModelosPorId(
+                @PathVariable int id){
+            Modelos modelo =
+                    this.modelosServicio.BuscarModeloPorID(id);
+            if(modelo != null)
+                return ResponseEntity.ok(modelo);
+            else
+                throw new RecursoNotFound("No se encontro el id: " + id);
+        }
+
+        @PutMapping("/modelos/{id}")
+        public ResponseEntity<Modelos> actualizarModelos(
+                @PathVariable int id,
+                @RequestBody Modelos g){
+            Modelos modelo = this.modelosServicio.BuscarModeloPorID(id);
+            if(modelo == null)
+                throw new RecursoNotFound("No se encontro el id: " + id);
+            modelo.setDescripcion(g.getDescripcion());
+            modelo.setEstado(g.getEstado());
+            this.modelosServicio.guardarModelos(modelo);
+            return ResponseEntity.ok(modelo);
+        }
+
+        @DeleteMapping("/modelos/{id}")
+        public ResponseEntity<Map<String, Boolean>>
+            eliminarModelos(@PathVariable int id){
+            Modelos modelos = modelosServicio.BuscarModeloPorID(id);
+            if (modelos == null)
+                throw new RecursoNotFound("No se encontro el id: " + id);
+            this.modelosServicio.eliminarModelo(modelos.getId());
+            Map<String, Boolean> respuesta = new HashMap<>();
+            respuesta.put("eliminado", Boolean.TRUE);
+            return ResponseEntity.ok(respuesta);
+        }
     
 }

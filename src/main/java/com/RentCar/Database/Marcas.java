@@ -11,7 +11,7 @@ public class Marcas implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
     
     private String Descripcion;
     
@@ -27,7 +27,7 @@ public class Marcas implements Serializable {
         this.Estado = Estado;
     }
 
-    public Marcas(Long Id, String Descripcion, String Estado) {
+    public Marcas(Integer Id, String Descripcion, String Estado) {
         this.Id = Id;
         this.Descripcion = Descripcion;
         this.Estado = Estado;

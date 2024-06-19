@@ -12,7 +12,7 @@ public class Empleados implements Serializable {
         
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
     
     private String Nombre;
     
@@ -38,7 +38,7 @@ public class Empleados implements Serializable {
         this.Estado = Estado;
     }
 
-    public Empleados(Long Id, String Nombre, int Cedula, String TandaLabor, int porcientoComision, Date FechaIngreso, String Estado) {
+    public Empleados(Integer Id, String Nombre, int Cedula, String TandaLabor, int porcientoComision, Date FechaIngreso, String Estado) {
         this.Id = Id;
         this.Nombre = Nombre;
         this.Cedula = Cedula;
